@@ -11,422 +11,377 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="#" class="nav__logo">najmi<span class="accent">.</span></a>
-        <div class="nav__links">
-            <a href="#about" class="nav__link">About</a>
-            <a href="#education" class="nav__link">Education</a>
-            <a href="#skills" class="nav__link">Skills</a>
-            <a href="#projects" class="nav__link">Projects</a>
-            <a href="#contact" class="nav__link nav__link--cta">Contact</a>
-        </div>
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
+    <!-- Network Background Canvas -->
+    <canvas id="networkCanvas"></canvas>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" class="mobile-menu__link">About</a>
-        <a href="#education" class="mobile-menu__link">Education</a>
-        <a href="#skills" class="mobile-menu__link">Skills</a>
-        <a href="#projects" class="mobile-menu__link">Projects</a>
-        <a href="#contact" class="mobile-menu__link">Contact</a>
+    <!-- Border Frame Edges (frosted dotted pattern) -->
+    <div class="border-edge border-edge--top"></div>
+    <div class="border-edge border-edge--bottom"></div>
+    <div class="border-edge border-edge--left"></div>
+    <div class="border-edge border-edge--right"></div>
+
+    <!-- Animated SVG Border -->
+    <svg class="border-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <rect class="border-svg__rect" x="20" y="20" width="1400" height="860" rx="10" ry="10" />
+    </svg>
+
+    <!-- Scroll Progress Indicator (right side) -->
+    <div class="scroll-track" id="scrollTrack">
+        <div class="scroll-track__progress" id="scrollProgress"></div>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="hero__container">
-            <div class="hero__left">
-                <p class="hero__greeting">Hello, I'm</p>
-                <h1 class="hero__name">Muhammad<br>Najmi</h1>
-                <div class="hero__divider"></div>
-                <p class="hero__tagline">Information Systems Management Student<br>& Aspiring Developer</p>
-                <div class="hero__actions">
-                    <a href="#projects" class="btn btn--primary">View My Work</a>
-                    <a href="#contact" class="btn btn--outline">Get In Touch</a>
-                </div>
-            </div>
-            <div class="hero__right">
-                <div class="hero__photo-frame">
-                    <div class="photo-placeholder" id="profilePhoto">
-                        <span class="photo-placeholder__text">Your Photo</span>
-                    </div>
-                    <div class="hero__photo-accent"></div>
-                </div>
-            </div>
-        </div>
-        <div class="hero__scroll-hint">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </header>
+    <!-- Side Navigation Labels -->
+    <nav class="sidenav" id="sidenav">
+        <a href="#hero" class="sidenav__item active" data-section="hero">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">Home</span>
+        </a>
+        <a href="#about" class="sidenav__item" data-section="about">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">About</span>
+        </a>
+        <a href="#education" class="sidenav__item" data-section="education">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">Education</span>
+        </a>
+        <a href="#skills" class="sidenav__item" data-section="skills">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">Skills</span>
+        </a>
+        <a href="#projects" class="sidenav__item" data-section="projects">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">Projects</span>
+        </a>
+        <a href="#contact" class="sidenav__item" data-section="contact">
+            <span class="sidenav__dot"></span>
+            <span class="sidenav__label">Contact</span>
+        </a>
+    </nav>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section__label">01 — About</div>
-            <div class="about-grid">
-                <div class="about-grid__left">
-                    <h2 class="heading-lg">A little bit<br><em>about me</em></h2>
-                </div>
-                <div class="about-grid__right">
-                    <p class="body-text">
-                        I'm a Bachelor's degree student in <strong>Information Systems Management (Hons.)</strong> at UiTM Puncak Perdana.
-                    </p>
-                    <p class="body-text">
-                        I am very passionate about system design and development, information management, data analytics, database development, web administration, networking, IT support, and IS related work.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat__number">9+</span>
-                            <span class="stat__label">Projects Built</span>
+    <!-- Scrollable Content -->
+    <main class="page-content" id="pageContent">
+
+        <!-- Hero Section -->
+        <section class="section section--hero" id="hero">
+            <div class="section__inner">
+                <div class="hero__container">
+                    <div class="hero__left">
+                        <p class="hero__greeting">Hello, I'm</p>
+                        <h1 class="hero__name">Muhammad<br>Najmi</h1>
+                        <div class="hero__divider"></div>
+                        <p class="hero__tagline">Information Systems Management Student<br>& Aspiring Developer</p>
+                        <div class="hero__actions">
+                            <a href="#projects" class="btn btn--primary">View My Work</a>
+                            <a href="#contact" class="btn btn--outline">Get In Touch</a>
                         </div>
-                        <div class="stat">
-                            <span class="stat__number">15+</span>
-                            <span class="stat__label">Technologies</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat__number">3+</span>
-                            <span class="stat__label">Years Learning</span>
+                    </div>
+                    <div class="hero__right">
+                        <div class="hero__photo-frame">
+                            <img src="profile.png" alt="Muhammad Najmi" class="hero__photo">
+                            <div class="hero__photo-accent"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="section section--alt" id="education">
-        <div class="container">
-            <div class="section__label">02 — Education</div>
-            <h2 class="heading-lg">Academic <em>Journey</em></h2>
-
-            <div class="edu-cards">
-                <div class="edu-card reveal">
-                    <div class="edu-card__year">2025 — Present</div>
-                    <div class="edu-card__body">
-                        <span class="edu-card__badge edu-card__badge--active">Current</span>
-                        <h3 class="edu-card__title">Universiti Teknologi MARA (UiTM) Puncak Perdana</h3>
-                        <p class="edu-card__degree">Bachelor of Information Science (Hons.)<br>Information Systems Management</p>
-                    </div>
-                </div>
-
-                <div class="edu-card reveal">
-                    <div class="edu-card__year">2022 — 2025</div>
-                    <div class="edu-card__body">
-                        <span class="edu-card__badge edu-card__badge--done">Completed</span>
-                        <h3 class="edu-card__title">Universiti Teknologi MARA (UiTM) Rembau</h3>
-                        <p class="edu-card__degree">Diploma in Information Management</p>
-                    </div>
+                <div class="hero__scroll-hint">
+                    <span>Scroll</span>
+                    <div class="scroll-line"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section class="section" id="skills">
-        <div class="container">
-            <div class="section__label">03 — Skills</div>
-            <h2 class="heading-lg">Tools & <em>Technologies</em></h2>
+        <!-- Gradient blur transition -->
+        <div class="gradient-blur"></div>
 
-            <div class="skills-group reveal">
-                <h3 class="skills-group__title">Languages</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="devicon-cplusplus-plain colored"></i>
-                        <span>C++</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-php-plain colored"></i>
-                        <span>PHP</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-javascript-plain colored"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-html5-plain colored"></i>
-                        <span>HTML</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-css3-plain colored"></i>
-                        <span>CSS</span>
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="section__inner">
+                <div class="container">
+                    <div class="section__label">01 — About</div>
+                    <div class="about-grid">
+                        <div class="about-grid__left">
+                            <h2 class="heading-lg">A little bit<br><em>about me</em></h2>
+                        </div>
+                        <div class="about-grid__right">
+                            <p class="body-text">
+                                I'm a Bachelor's degree student in <strong>Information Systems Management (Hons.)</strong> at UiTM Puncak Perdana.
+                            </p>
+                            <p class="body-text">
+                                I am very passionate about system design and development, information management, data analytics, database development, web administration, networking, IT support, and IS related work.
+                            </p>
+                            <div class="about-stats">
+                                <div class="stat">
+                                    <span class="stat__number">9+</span>
+                                    <span class="stat__label">Projects Built</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat__number">15+</span>
+                                    <span class="stat__label">Technologies</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat__number">3+</span>
+                                    <span class="stat__label">Years Learning</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="skills-group reveal">
-                <h3 class="skills-group__title">Frameworks & Databases</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="devicon-mongodb-plain colored"></i>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-express-original"></i>
-                        <span>Express.js</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-react-original colored"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-nodejs-plain colored"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-mysql-plain colored"></i>
-                        <span>MySQL</span>
+        <!-- Section divider -->
+        <hr class="section-divider">
+
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <div class="section__inner">
+                <div class="container">
+                    <div class="section__label">02 — Education</div>
+                    <h2 class="heading-lg">Academic <em>Journey</em></h2>
+
+                    <div class="edu-cards">
+                        <div class="edu-card reveal">
+                            <div class="edu-card__left">
+                                <div class="edu-card__year">2025 — Present</div>
+                                <div class="edu-card__image">
+                                    <img src="uitm.jpg" alt="UiTM Puncak Perdana Campus" class="clickable-image">
+                                </div>
+                            </div>
+                            <div class="edu-card__body">
+                                <span class="edu-card__badge edu-card__badge--active">Current</span>
+                                <h3 class="edu-card__title">Universiti Teknologi MARA (UiTM) Puncak Perdana</h3>
+                                <p class="edu-card__degree">Bachelor of Information Science (Hons.)<br>Information Systems Management</p>
+                            </div>
+                        </div>
+
+                        <div class="edu-card reveal">
+                            <div class="edu-card__left">
+                                <div class="edu-card__year">2022 — 2025</div>
+                                <div class="edu-card__image">
+                                    <img src="uitm-rembau.png" alt="UiTM Rembau Campus" class="clickable-image">
+                                </div>
+                            </div>
+                            <div class="edu-card__body">
+                                <span class="edu-card__badge edu-card__badge--done">Completed</span>
+                                <h3 class="edu-card__title">Universiti Teknologi MARA (UiTM) Rembau</h3>
+                                <p class="edu-card__degree">Diploma in Information Management</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="skills-group reveal">
-                <h3 class="skills-group__title">Tools & Platforms</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-card__emoji">📊</div>
-                        <span>MS Project</span>
+        <!-- Section divider -->
+        <hr class="section-divider">
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="section__inner">
+                <div class="container">
+                    <div class="section__label">03 — Skills</div>
+                    <h2 class="heading-lg">Tools & <em>Technologies</em></h2>
+
+                    <div class="skills-group reveal">
+                        <h3 class="skills-group__title">Languages</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+                            <div class="skill-card"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                            <div class="skill-card"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                            <div class="skill-card"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+                            <div class="skill-card"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+                        </div>
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-card__emoji">📝</div>
-                        <span>MS Office</span>
+
+                    <div class="skills-group reveal">
+                        <h3 class="skills-group__title">Frameworks & Databases</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                            <div class="skill-card"><i class="devicon-express-original"></i><span>Express.js</span></div>
+                            <div class="skill-card"><i class="devicon-react-original colored"></i><span>React</span></div>
+                            <div class="skill-card"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+                            <div class="skill-card"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                        </div>
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-card__emoji">📈</div>
-                        <span>Tableau</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-canva-original colored"></i>
-                        <span>Canva</span>
-                    </div>
-                    <div class="skill-card">
-                        <i class="devicon-wordpress-plain"></i>
-                        <span>WordPress</span>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-card__emoji">🌐</div>
-                        <span>Wix</span>
+
+                    <div class="skills-group reveal">
+                        <h3 class="skills-group__title">Tools & Platforms</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card"><img src="https://api.iconify.design/file-icons:microsoft-project.svg?color=%2331752f" alt="MS Project" class="skill-card__img"><span>MS Project</span></div>
+                            <div class="skill-card"><img src="https://api.iconify.design/mdi:microsoft-office.svg?color=%23d83b01" alt="MS Office" class="skill-card__img"><span>MS Office</span></div>
+                            <div class="skill-card"><img src="https://api.iconify.design/simple-icons:tableau.svg?color=%23e97627" alt="Tableau" class="skill-card__img"><span>Tableau</span></div>
+                            <div class="skill-card"><i class="devicon-canva-original colored"></i><span>Canva</span></div>
+                            <div class="skill-card"><i class="devicon-wordpress-plain"></i><span>WordPress</span></div>
+                            <div class="skill-card"><img src="https://api.iconify.design/cib:wix.svg?color=%23000000" alt="Wix" class="skill-card__img"><span>Wix</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section class="section section--alt" id="projects">
-        <div class="container">
-            <div class="section__label">04 — Projects</div>
-            <h2 class="heading-lg">Selected <em>Work</em></h2>
+        <!-- Section divider -->
+        <hr class="section-divider">
 
-            <!-- Degree Projects -->
-            <h3 class="projects-subtitle">Degree Projects</h3>
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="section__inner">
+                <div class="container">
+                    <div class="section__label">04 — Projects</div>
+                    <h2 class="heading-lg">Selected <em>Work</em></h2>
 
-            <div class="project-card reveal" id="project-flight">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
+                    <h3 class="projects-subtitle">Degree Projects</h3>
+
+                    <div class="project-card reveal" id="project-flight">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">01</span>
+                            <h4 class="project-card__title">Flight Booking System</h4>
+                            <p class="project-card__desc">Full-featured flight booking platform with search, reservation, and passenger management capabilities.</p>
+                            <div class="project-card__tags"><span class="tag">PHP</span><span class="tag">CakePHP</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">01</span>
-                    <h4 class="project-card__title">Flight Booking System</h4>
-                    <p class="project-card__desc">Full-featured flight booking platform with search, reservation, and passenger management capabilities.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">CakePHP</span>
+
+                    <div class="project-card project-card--reverse reveal" id="project-mimpi">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">02</span>
+                            <h4 class="project-card__title">Mimpi Dessert Food Ordering System</h4>
+                            <p class="project-card__desc">Console-based food ordering system for a dessert shop with menu browsing, order customization, and receipt generation.</p>
+                            <div class="project-card__tags"><span class="tag">C++</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal" id="project-parcel">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">03</span>
+                            <h4 class="project-card__title">Parcel Management System</h4>
+                            <p class="project-card__desc">Full-stack parcel tracking and management system with real-time status updates, user authentication, and admin dashboard.</p>
+                            <div class="project-card__tags"><span class="tag">MongoDB</span><span class="tag">Express.js</span><span class="tag">React</span><span class="tag">Node.js</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card project-card--reverse reveal" id="project-thriftlab">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">04</span>
+                            <h4 class="project-card__title">ThriftLab E-Commerce Website</h4>
+                            <p class="project-card__desc">E-commerce platform for thrift shopping with product listings and analytics dashboard.</p>
+                            <div class="project-card__tags"><span class="tag">HTML</span><span class="tag">Bootstrap</span><span class="tag">Chart.js</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal" id="project-hobby">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">05</span>
+                            <h4 class="project-card__title">Personal Hobby Website</h4>
+                            <p class="project-card__desc">Personal hobby showcase website designed and built on the Wix platform.</p>
+                            <div class="project-card__tags"><span class="tag">Wix</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card project-card--reverse reveal" id="project-tourism">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">06</span>
+                            <h4 class="project-card__title">Local Tourism Website</h4>
+                            <p class="project-card__desc">Tourism promotion site highlighting local attractions, activities, and travel guides.</p>
+                            <div class="project-card__tags"><span class="tag">WordPress</span></div>
+                        </div>
+                    </div>
+
+                    <h3 class="projects-subtitle">Diploma Projects</h3>
+
+                    <div class="project-card reveal" id="project-restaurant">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">07</span>
+                            <h4 class="project-card__title">Restaurant Online Website</h4>
+                            <p class="project-card__desc">Interactive restaurant website featuring menu display, gallery, and responsive design.</p>
+                            <div class="project-card__tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card project-card--reverse reveal" id="project-personal">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">08</span>
+                            <h4 class="project-card__title">Personal Website</h4>
+                            <p class="project-card__desc">Portfolio website showcasing personal information and projects with clean, custom design.</p>
+                            <div class="project-card__tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal" id="project-muet">
+                        <div class="project-card__image"><div class="project-card__placeholder"><span>Project Image</span></div></div>
+                        <div class="project-card__content">
+                            <span class="project-card__num">09</span>
+                            <h4 class="project-card__title">MUET Results Calculator</h4>
+                            <p class="project-card__desc">Command-line calculator tool for computing MUET examination band scores and results.</p>
+                            <div class="project-card__tags"><span class="tag">C++</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card project-card--reverse reveal" id="project-mimpi">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">02</span>
-                    <h4 class="project-card__title">Mimpi Dessert Food Ordering System</h4>
-                    <p class="project-card__desc">Console-based food ordering system for a dessert shop with menu browsing, order customization, and receipt generation.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">C++</span>
+        <!-- Section divider -->
+        <hr class="section-divider">
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="section__inner">
+                <div class="container">
+                    <div class="section__label">05 — Contact</div>
+                    <div class="contact-grid">
+                        <div class="contact-grid__left">
+                            <h2 class="heading-lg">Let's work<br><em>together</em></h2>
+                            <p class="body-text">Feel free to reach out if you'd like to collaborate, or just say hello.</p>
+                        </div>
+                        <div class="contact-grid__right">
+                            <div class="contact-links">
+                                <a href="mailto:najmiii639@gmail.com" class="contact-item" id="contact-email">
+                                    <span class="contact-item__label">Email</span>
+                                    <span class="contact-item__value">najmiii639@gmail.com</span>
+                                    <span class="contact-item__arrow">→</span>
+                                </a>
+                                <a href="https://github.com/mohdnajmi639" target="_blank" rel="noopener" class="contact-item" id="contact-github">
+                                    <span class="contact-item__label">GitHub</span>
+                                    <span class="contact-item__value">mohdnajmi639</span>
+                                    <span class="contact-item__arrow">→</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/muhammad-najmi-873aaa413/" target="_blank" rel="noopener" class="contact-item" id="contact-linkedin">
+                                    <span class="contact-item__label">LinkedIn</span>
+                                    <span class="contact-item__value">Muhammad Najmi</span>
+                                    <span class="contact-item__arrow">→</span>
+                                </a>
+                                <a href="https://www.instagram.com/najmii.exe/" target="_blank" rel="noopener" class="contact-item" id="contact-instagram">
+                                    <span class="contact-item__label">Instagram</span>
+                                    <span class="contact-item__value">@najmii.exe</span>
+                                    <span class="contact-item__arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="project-card reveal" id="project-parcel">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">03</span>
-                    <h4 class="project-card__title">Parcel Management System</h4>
-                    <p class="project-card__desc">Full-stack parcel tracking and management system with real-time status updates, user authentication, and admin dashboard.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Express.js</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                    </div>
-                </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span class="footer__copy">© 2025 Muhammad Najmi bin Ismady</span>
+                <span class="footer__made">Crafted with care</span>
             </div>
+        </footer>
 
-            <div class="project-card project-card--reverse reveal" id="project-thriftlab">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">04</span>
-                    <h4 class="project-card__title">ThriftLab E-Commerce Website</h4>
-                    <p class="project-card__desc">E-commerce platform for thrift shopping with product listings and analytics dashboard.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">Bootstrap</span>
-                        <span class="tag">Chart.js</span>
-                    </div>
-                </div>
-            </div>
+    </main>
 
-            <div class="project-card reveal" id="project-hobby">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">05</span>
-                    <h4 class="project-card__title">Personal Hobby Website</h4>
-                    <p class="project-card__desc">Personal hobby showcase website designed and built on the Wix platform.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">Wix</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card project-card--reverse reveal" id="project-tourism">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">06</span>
-                    <h4 class="project-card__title">Local Tourism Website</h4>
-                    <p class="project-card__desc">Tourism promotion site highlighting local attractions, activities, and travel guides.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">WordPress</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Diploma Projects -->
-            <h3 class="projects-subtitle">Diploma Projects</h3>
-
-            <div class="project-card reveal" id="project-restaurant">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">07</span>
-                    <h4 class="project-card__title">Restaurant Online Website</h4>
-                    <p class="project-card__desc">Interactive restaurant website featuring menu display, gallery, and responsive design.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card project-card--reverse reveal" id="project-personal">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">08</span>
-                    <h4 class="project-card__title">Personal Website</h4>
-                    <p class="project-card__desc">Portfolio website showcasing personal information and projects with clean, custom design.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" id="project-muet">
-                <div class="project-card__image">
-                    <div class="project-card__placeholder">
-                        <span>Project Image</span>
-                    </div>
-                </div>
-                <div class="project-card__content">
-                    <span class="project-card__num">09</span>
-                    <h4 class="project-card__title">MUET Results Calculator</h4>
-                    <p class="project-card__desc">Command-line calculator tool for computing MUET examination band scores and results.</p>
-                    <div class="project-card__tags">
-                        <span class="tag">C++</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section section--contact" id="contact">
-        <div class="container">
-            <div class="section__label">05 — Contact</div>
-            <div class="contact-grid">
-                <div class="contact-grid__left">
-                    <h2 class="heading-lg">Let's work<br><em>together</em></h2>
-                    <p class="body-text">Feel free to reach out if you'd like to collaborate, or just say hello.</p>
-                </div>
-                <div class="contact-grid__right">
-                    <div class="contact-links">
-                        <a href="mailto:najmiii639@gmail.com" class="contact-item" id="contact-email">
-                            <span class="contact-item__label">Email</span>
-                            <span class="contact-item__value">najmiii639@gmail.com</span>
-                            <span class="contact-item__arrow">→</span>
-                        </a>
-                        <a href="https://github.com/mohdnajmi639" target="_blank" rel="noopener" class="contact-item" id="contact-github">
-                            <span class="contact-item__label">GitHub</span>
-                            <span class="contact-item__value">mohdnajmi639</span>
-                            <span class="contact-item__arrow">→</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/muhammad-najmi-873aaa413/" target="_blank" rel="noopener" class="contact-item" id="contact-linkedin">
-                            <span class="contact-item__label">LinkedIn</span>
-                            <span class="contact-item__value">Muhammad Najmi</span>
-                            <span class="contact-item__arrow">→</span>
-                        </a>
-                        <a href="https://www.instagram.com/najmii.exe/" target="_blank" rel="noopener" class="contact-item" id="contact-instagram">
-                            <span class="contact-item__label">Instagram</span>
-                            <span class="contact-item__value">@najmii.exe</span>
-                            <span class="contact-item__arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer__inner">
-            <span class="footer__copy">© 2025 Muhammad Najmi bin Ismady</span>
-            <span class="footer__made">Crafted with care</span>
-        </div>
-    </footer>
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox__close" id="lightboxClose">&times;</span>
+        <img class="lightbox__content" id="lightboxImg">
+    </div>
 
     <script src="script.js"></script>
 </body>
