@@ -303,7 +303,7 @@ img {
 }
 
 /* Content sections sit above the sticky hero */
-.section:not(.section--hero) {
+.section:not(.section--hero), .footer {
     background: var(--bg);
     position: relative;
     z-index: 2;
@@ -952,6 +952,20 @@ img {
     letter-spacing: 0.02em;
 }
 
+.contact-phone {
+    display: inline-block;
+    margin-top: 6px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s var(--ease), text-shadow 0.3s var(--ease);
+}
+
+.contact-phone:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 0 12px var(--accent-glow);
+}
+
 
 .contact-grid {
     display: grid;
@@ -1123,14 +1137,31 @@ img {
         padding: 60px calc(var(--frame-size) + 16px);
     }
 
+    .section--hero {
+        position: relative;
+        min-height: auto;
+        padding-top: 100px;
+    }
+
+    .gradient-blur {
+        display: none;
+    }
+
     .container {
         padding: 0 16px;
     }
 
     .sidenav {
-        right: var(--frame-size);
-        padding: 10px 8px;
-        gap: 2px;
+        top: var(--frame-size);
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        flex-direction: row;
+        padding: 8px 16px;
+        gap: 8px;
+        border-radius: 0 0 16px 16px;
+        border: 1px solid rgba(160, 120, 90, 0.12);
+        border-top: none;
     }
 
     .sidenav__label {
@@ -1138,7 +1169,7 @@ img {
     }
 
     .sidenav__item {
-        padding: 6px 8px;
+        padding: 8px;
     }
 
     .hero__container {
